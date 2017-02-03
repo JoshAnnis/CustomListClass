@@ -15,7 +15,7 @@ namespace CustomListTest
             CustomList<int> list = new CustomList<int>();
             int result = 1;
             //Act
-            list.Add(45);
+            list.Add(2);
             
             //Assert
             Assert.AreEqual(list.count, result);
@@ -25,14 +25,16 @@ namespace CustomListTest
         [TestMethod]
         public void RemoveformArray()
         {
-            CustomList<int> list = new CustomList<int>();
-            int result = 0;
-            list.Remove(0);
-            Assert.AreEqual(list.myArray.Length, result);
+            CustomList<int> list = new CustomList<int>() {4,3} ;
+            int result = 1;
+
+            list.Remove(1);
+
+            Assert.AreEqual(list.count,result);
+            
 
         }
-
-
+        
 
     }
 }
