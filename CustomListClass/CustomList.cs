@@ -10,8 +10,9 @@ namespace CustomListClass
    public class CustomList<T> : IEnumerable
     {
 
-    public T[] myArray = new T[1];
-        public int count = 0;
+    public T[] myArray = new T[3];
+        public int Count = 0;
+        public string Enumerator;
 
         public  class Customlist<Z,X>
         {
@@ -27,7 +28,7 @@ namespace CustomListClass
             {
                 myArray[i] = tempArray[i];
             }
-            count++;               
+            Count++;               
             myArray = tempArray;
         }
 
@@ -44,7 +45,9 @@ namespace CustomListClass
                 }
                 tempArray[i] = myArray[i];
             }
-            count--;
+            
+            
+            Count--;
 
 
 
@@ -86,18 +89,14 @@ namespace CustomListClass
 
 
 
-        public IEnumerator<T> GetEnumerator()
+        
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            for (int i = 0; i < myArray.Length; i++)
+            for (int i = 0; i < Count; i++)
             {
                 yield return myArray[i];
 
             }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
         }
     }
 }
